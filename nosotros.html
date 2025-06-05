@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - iBox</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1><i class="fas fa-laptop"></i> iBox</h1>
+                <p>Tu Tienda de Informática</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="nosotros.html" class="highlight">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon" onclick="openCartModal()">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </div>
+    </header>
+    
+    <section class="page-banner">
+        <div class="container">
+            <h2>Sobre Nosotros</h2>
+            <p>Conoce la historia y valores de iBox</p>
+        </div>
+    </section>
+
+    <section class="about-content">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>Nuestra Historia</h2>
+                    <p>Desde 2010, iBox ha sido la tienda de referencia en tecnología e informática. Comenzamos como una pequeña tienda local con la visión de democratizar el acceso a la tecnología de calidad.</p>
+                    <p>Hoy, somos líderes en el sector, ofreciendo los mejores productos tecnológicos con un servicio al cliente excepcional y precios competitivos.</p>
+                </div>
+                <div class="about-image">
+                    <i class="fas fa-store" style="font-size: 150px; color: #1e40af;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="values">
+        <div class="container">
+            <h2>Nuestros Valores</h2>
+            <div class="values-grid">
+                <div class="value">
+                    <i class="fas fa-star"></i>
+                    <h3>Calidad</h3>
+                    <p>Solo trabajamos con las mejores marcas y productos de calidad garantizada.</p>
+                </div>
+                <div class="value">
+                    <i class="fas fa-users"></i>
+                    <h3>Servicio al Cliente</h3>
+                    <p>Nuestro equipo está siempre disponible para ayudarte con cualquier consulta.</p>
+                </div>
+                <div class="value">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Innovación</h3>
+                    <p>Siempre a la vanguardia de las últimas tecnologías y tendencias.</p>
+                </div>
+                <div class="value">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Confianza</h3>
+                    <p>Más de 15 años construyendo relaciones de confianza con nuestros clientes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="team">
+        <div class="container">
+            <h2>Nuestro Equipo</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Carlos Martínez</h3>
+                    <p>CEO & Fundador</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Ana García</h3>
+                    <p>Directora Técnica</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Miguel López</h3>
+                    <p>Jefe de Ventas</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>iBox</h3>
+                <p>Tu tienda de confianza para productos tecnológicos de calidad.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-phone"></i> +34 900 123 456</p>
+                <p><i class="fas fa-envelope"></i> info@ibox.es</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 iBox - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Modal del Carrito -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Carrito de Compras</h2>
+                <span class="close" onclick="closeCartModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="cartItems"></div>
+                <div class="cart-total">
+                    <strong>Total: <span id="cartTotal">0€</span></strong>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="clearCart()">Vaciar Carrito</button>
+                <button class="btn-primary" onclick="checkout()">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="cart.js"></script>
+</body>
+</html>

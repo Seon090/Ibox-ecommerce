@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iBox - Tu Tienda de Informática</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1><i class="fas fa-laptop"></i> iBox</h1>
+                <p>Tu Tienda de Informática</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="highlight">Inicio</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero-banner">
+        <div class="hero-content">
+            <h2>Encuentra los mejores productos tecnológicos</h2>
+            <p>Ordenadores, componentes, accesorios y más al mejor precio</p>
+            <a href="productos.html" class="cta-button">Ver Productos</a>
+        </div>
+        <div class="hero-image">
+            <i class="fas fa-desktop"></i>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <h2>¿Por qué elegir iBox?</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h3>Envío Rápido</h3>
+                    <p>Entrega en 24-48 horas</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Garantía</h3>
+                    <p>2 años de garantía oficial</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-headset"></i>
+                    <h3>Soporte 24/7</h3>
+                    <p>Atención al cliente siempre</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-credit-card"></i>
+                    <h3>Pago Seguro</h3>
+                    <p>Múltiples métodos de pago</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="productos-destacados">
+        <div class="container">
+            <h2>Productos Destacados</h2>
+            <div class="productos-grid">
+                <div class="producto">
+                    <img src="/placeholder.svg?height=200&width=200" alt="Laptop Gaming">
+                    <h3>Laptop Gaming Pro</h3>
+                    <p>Rendimiento excepcional para gaming y trabajo profesional.</p>
+                    <span class="precio">1.299€</span>
+                    <button class="btn-add-cart" onclick="addToCart(1, 'Laptop Gaming Pro', 1299)">
+                        <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                    </button>
+                </div>
+                <div class="producto">
+                    <img src="/placeholder.svg?height=200&width=200" alt="Tarjeta Gráfica">
+                    <h3>RTX 4080 Super</h3>
+                    <p>Gráficos de última generación para gaming 4K.</p>
+                    <span class="precio">899€</span>
+                    <button class="btn-add-cart" onclick="addToCart(2, 'RTX 4080 Super', 899)">
+                        <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                    </button>
+                </div>
+                <div class="producto">
+                    <img src="/placeholder.svg?height=200&width=200" alt="Monitor 4K">
+                    <h3>Monitor 4K 27"</h3>
+                    <p>Resolución ultra HD para máxima claridad visual.</p>
+                    <span class="precio">449€</span>
+                    <button class="btn-add-cart" onclick="addToCart(3, 'Monitor 4K 27', 449)">
+                        <i class="fas fa-cart-plus"></i> Añadir al Carrito
+                    </button>
+                </div>
+            </div>
+            <div class="ver-mas">
+                <a href="productos.html" class="btn-secondary">Ver Todos los Productos</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>iBox</h3>
+                <p>Tu tienda de confianza para productos tecnológicos de calidad.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-phone"></i> +34 900 123 456</p>
+                <p><i class="fas fa-envelope"></i> info@ibox.es</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 iBox - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Modal del Carrito -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Carrito de Compras</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="cartItems"></div>
+                <div class="cart-total">
+                    <strong>Total: <span id="cartTotal">0€</span></strong>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="clearCart()">Vaciar Carrito</button>
+                <button class="btn-primary" onclick="checkout()">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="cart.js"></script>
+</body>
+</html>
