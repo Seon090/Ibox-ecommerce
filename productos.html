@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - iBox</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1><i class="fas fa-laptop"></i> iBox</h1>
+                <p>Tu Tienda de Informática</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="productos.html" class="highlight">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="cart-icon" onclick="openCartModal()">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </div>
+    </header>
+    
+    <section class="page-banner">
+        <div class="container">
+            <h2>Nuestros Productos</h2>
+            <p>Encuentra la mejor tecnología al mejor precio</p>
+        </div>
+    </section>
+
+    <section class="productos-section">
+        <div class="container">
+            <div class="filters">
+                <h3>Filtrar por categoría:</h3>
+                <button class="filter-btn active" onclick="filterProducts('all')">Todos</button>
+                <button class="filter-btn" onclick="filterProducts('laptops')">Portátiles</button>
+                <button class="filter-btn" onclick="filterProducts('components')">Componentes</button>
+                <button class="filter-btn" onclick="filterProducts('peripherals')">Periféricos</button>
+            </div>
+
+            <div class="productos-grid" id="productosGrid">
+                <div class="producto" data-category="laptops">
+                    <img src="/placeholder.svg?height=250&width=250" alt="Laptop Gaming">
+                    <h3>Laptop Gaming Pro</h3>
+                    <p>Intel i7, 16GB RAM, RTX 4060, SSD 1TB</p>
+                    <span class="precio">1.299€</span>
+                    <div class="producto-actions">
+                        <button class="btn-add-cart" onclick="addToCart(1, 'Laptop Gaming Pro', 1299)">
+                            <i class="fas fa-cart-plus"></i> Añadir
+                        </button>
+                        <button class="btn-wishlist">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto" data-category="components">
+                    <img src="/placeholder.svg?height=250&width=250" alt="RTX 4080">
+                    <h3>RTX 4080 Super</h3>
+                    <p>16GB GDDR6X, Ray Tracing, DLSS 3.0</p>
+                    <span class="precio">899€</span>
+                    <div class="producto-actions">
+                        <button class="btn-add-cart" onclick="addToCart(2, 'RTX 4080 Super', 899)">
+                            <i class="fas fa-cart-plus"></i> Añadir
+                        </button>
+                        <button class="btn-wishlist">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto" data-category="peripherals">
+                    <img src="/placeholder.svg?height=250&width=250" alt="Monitor 4K">
+                    <h3>Monitor 4K 27"</h3>
+                    <p>IPS, 144Hz, HDR10, USB-C</p>
+                    <span class="precio">449€</span>
+                    <div class="producto-actions">
+                        <button class="btn-add-cart" onclick="addToCart(3, 'Monitor 4K 27', 449)">
+                            <i class="fas fa-cart-plus"></i> Añadir
+                        </button>
+                        <button class="btn-wishlist">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto" data-category="components">
+                    <img src="/placeholder.svg?height=250&width=250" alt="Procesador">
+                    <h3>Intel Core i9-14900K</h3>
+                    <p>24 núcleos, 5.6GHz, Socket LGA1700</p>
+                    <span class="precio">589€</span>
+                    <div class="producto-actions">
+                        <button class="btn-add-cart" onclick="addToCart(4, 'Intel Core i9-14900K', 589)">
+                            <i class="fas fa-cart-plus"></i> Añadir
+                        </button>
+                        <button class="btn-wishlist">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto" data-category="components">
+                    <img src="/placeholder.svg?height=250&width=250" alt="RAM">
+                    <h3>Corsair Vengeance 32GB</h3>
+                    <p>DDR5-5600, RGB, Kit 2x16GB</p>
+                    <span class="precio">199€</span>
+                    <div class="producto-actions">
+                        <button class="btn-add-cart" onclick="addToCart(5, 'Corsair Vengeance 32GB', 199)">
+                            <i class="fas fa-cart-plus"></i> Añadir
+                        </button>
+                        <button class="btn-wishlist">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto" data-category="peripherals">
+                    <img src="/placeholder.svg?height=250&width=250" alt="Teclado">
+                    <h3>Teclado Mecánico RGB</h3>
+                    <p>Switches Cherry MX, Retroiluminación RGB</p>
+                    <span class="precio">129€</span>
+                    <div class="producto-actions">
+                        <button class="btn-add-cart" onclick="addToCart(6, 'Teclado Mecánico RGB', 129)">
+                            <i class="fas fa-cart-plus"></i> Añadir
+                        </button>
+                        <button class="btn-wishlist">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto" data-category="laptops">
+                    <img src="/placeholder.svg?height=250&width=250" alt="MacBook">
+                    <h3>MacBook Pro 16"</h3>
+                    <p>M3 Pro, 18GB RAM, SSD 512GB</p>
+                    <span class="precio">2.499€</span>
+                    <div class="producto-actions">
+                        <button class="btn-add-cart" onclick="addToCart(7, 'MacBook Pro 16', 2499)">
+                            <i class="fas fa-cart-plus"></i> Añadir
+                        </button>
+                        <button class="btn-wishlist">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="producto" data-category="peripherals">
+                    <img src="/placeholder.svg?height=250&width=250" alt="Ratón Gaming">
+                    <h3>Ratón Gaming Pro</h3>
+                    <p>25600 DPI, RGB, Inalámbrico</p>
+                    <span class="precio">79€</span>
+                    <div class="producto-actions">
+                        <button class="btn-add-cart" onclick="addToCart(8, 'Ratón Gaming Pro', 79)">
+                            <i class="fas fa-cart-plus"></i> Añadir
+                        </button>
+                        <button class="btn-wishlist">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>iBox</h3>
+                <p>Tu tienda de confianza para productos tecnológicos de calidad.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-phone"></i> +34 900 123 456</p>
+                <p><i class="fas fa-envelope"></i> info@ibox.es</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 iBox - Todos los derechos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Modal del Carrito -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Carrito de Compras</h2>
+                <span class="close" onclick="closeCartModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="cartItems"></div>
+                <div class="cart-total">
+                    <strong>Total: <span id="cartTotal">0€</span></strong>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="clearCart()">Vaciar Carrito</button>
+                <button class="btn-primary" onclick="checkout()">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="cart.js"></script>
+    <script src="products.js"></script>
+</body>
+</html>
